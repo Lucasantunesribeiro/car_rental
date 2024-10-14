@@ -86,24 +86,27 @@ Here are the key routes available in the system:
 
 ### Cars
 - `GET /cars` - List all cars
+- `GET /cars/create` - Show form to create a new car
 - `POST /cars` - Create a new car
 - `GET /cars/{id}` - View a specific car
+- `GET /cars/{id}/edit` - Show form to edit a specific car
 - `PUT /cars/{id}` - Update a car
 - `DELETE /cars/{id}` - Delete a car
 
 ### Rentals
+- `GET /rents/create/{carro}` - Show form to create a new rental for a specific car
+- `POST /rents/alugar` - Create a new rental
 - `GET /rents` - List all rentals
-- `POST /rents` - Create a new rental
-- `GET /rents/{id}` - View a specific rental
-- `PUT /rents/{id}` - Update a rental
-- `DELETE /rents/{id}` - Delete a rental
 
 ### Users
 - `GET /users` - List all users
-- `POST /users` - Register a new user
-- `GET /users/{id}` - View a specific user
-- `PUT /users/{id}` - Update a user profile
-- `DELETE /users/{id}` - Delete a user
+
+### User Profile
+- `GET /profile` - Show the user profile edit form
+- `PATCH /profile` - Update the user profile
+- `DELETE /profile` - Delete the user profile
+- `POST /logout` - Log out the user
+
 
 ## Future Enhancements
 - **Payment Integration**: Add payment gateway for rental transactions.
