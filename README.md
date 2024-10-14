@@ -1,122 +1,109 @@
-Car Rental System
+Car Rental Management System
+Overview
+The Car Rental Management System is a web application developed using Laravel, designed to facilitate the management of car rental services. The system allows users to register, browse available cars, and manage car rentals. The administration section provides features to manage cars, users, and rentals, making it an efficient tool for car rental businesses.
 
-Descrição
-O Car Rental System é uma aplicação de gerenciamento de aluguel de carros desenvolvida em Laravel. O sistema permite que usuários cadastrem carros, gerenciem aluguéis e acompanhem a disponibilidade dos veículos de forma eficiente. Ele foi projetado para ser utilizado por empresas que oferecem serviços de locação de veículos, fornecendo uma interface amigável para gerenciar os registros de carros, aluguéis e clientes.
-
-Funcionalidades
-Gerenciamento de carros: cadastro, edição, visualização e exclusão de veículos disponíveis para aluguel.
-Gerenciamento de aluguéis: registro de novos aluguéis, controle de datas de devolução e status de cada aluguel.
-Gerenciamento de usuários: controle de acesso e perfis de usuários, com sistema de login, registro e autenticação.
-Sistema de reservas: permite reservar veículos para datas específicas.
-Interface intuitiva: interface moderna com Bootstrap e layouts responsivos.
-Segurança: autenticação de usuários e proteção de rotas.
-Tecnologias Utilizadas
-PHP 8.1
-Laravel 9.x
-MySQL ou SQLite (banco de dados)
-Bootstrap 5 (estilização)
-Tailwind CSS
-JavaScript
-Blade Templating Engine
-Requisitos do Sistema
-Antes de instalar o sistema, certifique-se de que seu ambiente atenda aos seguintes requisitos:
+Features
+User Registration and Authentication: Users can register, log in, and manage their profiles.
+Car Management: Admins can add, edit, and delete cars available for rent.
+Rental Management: Users can rent cars, and admins can view, edit, and manage rental records.
+Responsive Design: The system is optimized for both desktop and mobile devices.
+Security: Authentication and validation of input data to ensure the integrity of user and rental information.
+Database Management: Uses SQLite to store user, car, and rental information.
+Technologies Used
+Framework: Laravel 10.x
+Database: SQLite 3.46.1
+Frontend: Blade, Tailwind CSS, Bootstrap
+Version Control: Git and GitHub
+Package Management: Composer, NPM
+Testing: PHPUnit
+Setup Instructions
+Prerequisites
+Ensure you have the following installed:
 
 PHP >= 8.1
 Composer
-MySQL ou SQLite
-Node.js & NPM
-Extensões do PHP:
-OpenSSL
-PDO
-Mbstring
-Tokenizer
-XML
-Ctype
-JSON
-Instalação
-Siga os passos abaixo para instalar o sistema localmente.
+NPM
+SQLite
+Installation Steps
+Clone the repository:
 
-1. Clone o repositório
 bash
 Copiar código
 git clone https://github.com/Lucasantunesribeiro/car_rental.git
 cd car_rental
-2. Instale as dependências do PHP
-Utilize o Composer para instalar as dependências do projeto:
+Install dependencies:
 
 bash
 Copiar código
 composer install
-3. Crie o arquivo .env
-Crie um arquivo .env baseado no arquivo de exemplo .env.example:
+npm install
+npm run build
+Set up the environment:
 
+Copy the .env.example file to .env:
 bash
 Copiar código
 cp .env.example .env
-4. Configure as variáveis de ambiente
-No arquivo .env, configure as informações do banco de dados e outras variáveis necessárias:
-
-env
-Copiar código
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=car_rental
-DB_USERNAME=root
-DB_PASSWORD=senha
-5. Gere a chave da aplicação
+Generate the application key:
 bash
 Copiar código
 php artisan key:generate
-6. Execute as migrações do banco de dados
+Set up the database:
+
+Migrate the database:
 bash
 Copiar código
 php artisan migrate
-7. Instale as dependências do front-end
-bash
-Copiar código
-npm install
-npm run dev
-8. Inicie o servidor de desenvolvimento
+Run the application:
+
 bash
 Copiar código
 php artisan serve
-Acesse o projeto em http://localhost:8000.
+The application will be accessible at http://localhost:8000.
 
-Como Usar
-1. Gerenciamento de Carros
-Acesse a seção "Carros" para cadastrar, editar, visualizar ou excluir veículos.
-Insira informações como marca, modelo, ano e imagem do carro.
-2. Gerenciamento de Aluguéis
-Acesse a seção "Aluguéis" para registrar novos aluguéis.
-Selecione o carro desejado, a data de retirada e devolução, e o status do aluguel.
-3. Gerenciamento de Usuários
-A aplicação possui sistema de autenticação onde os administradores podem gerenciar contas de usuários, que podem fazer login para acessar o sistema.
-Estrutura de Pastas
-app/Models: Modelos de dados (Carro, Rent, User).
-app/Http/Controllers: Controladores que lidam com a lógica de negócios.
-resources/views: Arquivos Blade que controlam o frontend.
-public: Arquivos públicos (imagens, CSS, JavaScript).
-routes/web.php: Arquivo de rotas da aplicação.
-APIs (Opcional)
-Se o projeto incluir uma API RESTful, você pode fornecer uma breve descrição sobre as rotas da API. Por exemplo:
-
-Método	URL	Descrição
-GET	/api/cars	Lista todos os carros
-POST	/api/rents	Cria um novo aluguel
-PUT	/api/rents/{id}	Atualiza o status de um aluguel
-DELETE	/api/rents/{id}	Exclui um aluguel
-Testes
-Para executar os testes da aplicação:
+Testing
+To run the test suite:
 
 bash
 Copiar código
 php artisan test
-Contribuição
-Se você quiser contribuir para o desenvolvimento deste projeto:
+Project Structure
+app/Http/Controllers: Contains the controllers managing requests, such as CarController and RentController.
+app/Models: Contains the Eloquent models like Car and Rent.
+resources/views: Contains Blade templates for the frontend.
+routes/web.php: Defines the web routes for the application.
+database/migrations: Contains migration files for database schema setup.
+API Endpoints
+Here are the key routes available in the system:
 
-Faça um fork do projeto.
-Crie uma branch com a sua feature (git checkout -b minha-feature).
-Faça commit das suas mudanças (git commit -am 'Adiciona minha feature').
-Faça o push para a branch (git push origin minha-feature).
-Envie um Pull Request.
+Cars
+GET /cars - List all cars
+POST /cars - Create a new car
+GET /cars/{id} - View a specific car
+PUT /cars/{id} - Update a car
+DELETE /cars/{id} - Delete a car
+Rentals
+GET /rents - List all rentals
+POST /rents - Create a new rental
+GET /rents/{id} - View a specific rental
+PUT /rents/{id} - Update a rental
+DELETE /rents/{id} - Delete a rental
+Users
+GET /users - List all users
+POST /users - Register a new user
+GET /users/{id} - View a specific user
+PUT /users/{id} - Update a user profile
+DELETE /users/{id} - Delete a user
+Future Enhancements
+Payment Integration: Add payment gateway for rental transactions.
+Car Availability: Implement a feature to check real-time availability of cars.
+User Role Management: Introduce roles like Admin, User, and Manager with specific permissions.
+Notifications: Email or SMS notifications for booking confirmations and reminders.
+Contributing
+Feel free to contribute to the project by following these steps:
+
+Fork the repository.
+Create a new branch for your feature (git checkout -b feature/new-feature).
+Commit your changes (git commit -m 'Add new feature').
+Push to the branch (git push origin feature/new-feature).
+Create a pull request.
