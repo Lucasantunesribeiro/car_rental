@@ -1,70 +1,122 @@
-<<<<<<< HEAD
-# car_rental
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Car Rental System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Descrição
+O Car Rental System é uma aplicação de gerenciamento de aluguel de carros desenvolvida em Laravel. O sistema permite que usuários cadastrem carros, gerenciem aluguéis e acompanhem a disponibilidade dos veículos de forma eficiente. Ele foi projetado para ser utilizado por empresas que oferecem serviços de locação de veículos, fornecendo uma interface amigável para gerenciar os registros de carros, aluguéis e clientes.
 
-## About Laravel
+Funcionalidades
+Gerenciamento de carros: cadastro, edição, visualização e exclusão de veículos disponíveis para aluguel.
+Gerenciamento de aluguéis: registro de novos aluguéis, controle de datas de devolução e status de cada aluguel.
+Gerenciamento de usuários: controle de acesso e perfis de usuários, com sistema de login, registro e autenticação.
+Sistema de reservas: permite reservar veículos para datas específicas.
+Interface intuitiva: interface moderna com Bootstrap e layouts responsivos.
+Segurança: autenticação de usuários e proteção de rotas.
+Tecnologias Utilizadas
+PHP 8.1
+Laravel 9.x
+MySQL ou SQLite (banco de dados)
+Bootstrap 5 (estilização)
+Tailwind CSS
+JavaScript
+Blade Templating Engine
+Requisitos do Sistema
+Antes de instalar o sistema, certifique-se de que seu ambiente atenda aos seguintes requisitos:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+PHP >= 8.1
+Composer
+MySQL ou SQLite
+Node.js & NPM
+Extensões do PHP:
+OpenSSL
+PDO
+Mbstring
+Tokenizer
+XML
+Ctype
+JSON
+Instalação
+Siga os passos abaixo para instalar o sistema localmente.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone o repositório
+bash
+Copiar código
+git clone https://github.com/Lucasantunesribeiro/car_rental.git
+cd car_rental
+2. Instale as dependências do PHP
+Utilize o Composer para instalar as dependências do projeto:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+bash
+Copiar código
+composer install
+3. Crie o arquivo .env
+Crie um arquivo .env baseado no arquivo de exemplo .env.example:
 
-## Learning Laravel
+bash
+Copiar código
+cp .env.example .env
+4. Configure as variáveis de ambiente
+No arquivo .env, configure as informações do banco de dados e outras variáveis necessárias:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+env
+Copiar código
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=car_rental
+DB_USERNAME=root
+DB_PASSWORD=senha
+5. Gere a chave da aplicação
+bash
+Copiar código
+php artisan key:generate
+6. Execute as migrações do banco de dados
+bash
+Copiar código
+php artisan migrate
+7. Instale as dependências do front-end
+bash
+Copiar código
+npm install
+npm run dev
+8. Inicie o servidor de desenvolvimento
+bash
+Copiar código
+php artisan serve
+Acesse o projeto em http://localhost:8000.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Como Usar
+1. Gerenciamento de Carros
+Acesse a seção "Carros" para cadastrar, editar, visualizar ou excluir veículos.
+Insira informações como marca, modelo, ano e imagem do carro.
+2. Gerenciamento de Aluguéis
+Acesse a seção "Aluguéis" para registrar novos aluguéis.
+Selecione o carro desejado, a data de retirada e devolução, e o status do aluguel.
+3. Gerenciamento de Usuários
+A aplicação possui sistema de autenticação onde os administradores podem gerenciar contas de usuários, que podem fazer login para acessar o sistema.
+Estrutura de Pastas
+app/Models: Modelos de dados (Carro, Rent, User).
+app/Http/Controllers: Controladores que lidam com a lógica de negócios.
+resources/views: Arquivos Blade que controlam o frontend.
+public: Arquivos públicos (imagens, CSS, JavaScript).
+routes/web.php: Arquivo de rotas da aplicação.
+APIs (Opcional)
+Se o projeto incluir uma API RESTful, você pode fornecer uma breve descrição sobre as rotas da API. Por exemplo:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Método	URL	Descrição
+GET	/api/cars	Lista todos os carros
+POST	/api/rents	Cria um novo aluguel
+PUT	/api/rents/{id}	Atualiza o status de um aluguel
+DELETE	/api/rents/{id}	Exclui um aluguel
+Testes
+Para executar os testes da aplicação:
 
-## Laravel Sponsors
+bash
+Copiar código
+php artisan test
+Contribuição
+Se você quiser contribuir para o desenvolvimento deste projeto:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> 56f7191 (feat: alterações nas rotas, adicionando bootstrap e alterações no registro e banco de dados)
+Faça um fork do projeto.
+Crie uma branch com a sua feature (git checkout -b minha-feature).
+Faça commit das suas mudanças (git commit -am 'Adiciona minha feature').
+Faça o push para a branch (git push origin minha-feature).
+Envie um Pull Request.
