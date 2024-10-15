@@ -49,7 +49,8 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "build": "composer install && php artisan migrate --force && cp -r public dist"
+        "build": "composer install && php artisan migrate --force && xcopy public dist /E /I"
+
     },
     "extra": {
         "laravel": {
