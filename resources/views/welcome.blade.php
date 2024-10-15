@@ -30,8 +30,7 @@
                             <p class="text-gray-600">{{ $car->marca}}</p>
                             <p class="mt-2 font-semibold">R$ {{ number_format($car->diaria, 2, ',', '.') }}/dia
                             </p>
-                            {{-- <a href="{{ route('reservar', $car->id) }}" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</a> --}}
-                        </div>
+                           </div>
                     </div>
                 @endforeach
             </div>

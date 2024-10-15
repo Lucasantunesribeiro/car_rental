@@ -10,18 +10,17 @@ class RentController extends Controller
 {
     public function index()
     {
-        $alugueis = Rent::with('carro')->get(); // Busca todos os aluguéis
-        $carrosDisponiveis = Carro::where('disponibilidade', true)->get(); // Busca todos os carros disponíveis
-        return view('rents.index', compact('alugueis', 'carrosDisponiveis')); // Passa os aluguéis e carros disponíveis para a view
+        $alugueis = Rent::with('carro')->get(); 
+        $carrosDisponiveis = Carro::where('disponibilidade', true)->get(); 
+        return view('rents.index', compact('alugueis', 'carrosDisponiveis')); 
     }
 
     public function create($carroId)
     {
-        $carro = Carro::findOrFail($carroId); // Busca o carro pelo ID
-        return view('rents.create', compact('carro')); // Passa o carro para a view
+        $carro = Carro::findOrFail($carroId); 
+        return view('rents.create', compact('carro')); 
     }
 
-    // Processa o aluguel do carro
     public function alugar(Request $request)
     {
         $request->validate([
@@ -37,9 +36,9 @@ class RentController extends Controller
         }
 
         $aluguel = new Rent();
-        $aluguel->carro_id = $carro->id; // Atribuir o carro ao aluguel
-        $aluguel->data_inicio = $request->start_date; // Atribuir a data de início
-        $aluguel->data_fim = $request->end_date; // Atribuir a data de fim
+        $aluguel->carro_id = $carro->id;
+        $aluguel->data_inicio = $request->start_date;
+        $aluguel->data_fim = $request->end_date; 
 
         $dias = (strtotime($request->end_date) - strtotime($request->start_date)) / (60 * 60 * 24) + 1;
         $aluguel->valor_total = $dias * $carro->diaria;
@@ -49,7 +48,6 @@ class RentController extends Controller
         $carro->disponibilidade = false;
         $carro->save();
 
-        // Redirecionar de volta com uma mensagem de sucesso
         return redirect()->route('rents.index')->with('success', 'Aluguel realizado com sucesso!');
     }
 }

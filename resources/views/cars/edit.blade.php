@@ -62,7 +62,6 @@
                 <div
                     style="margin-top:1em; margin-bottom: 1em; width: 300px; height: 300px; overflow: hidden; position: relative;">
                     @if ($carro->imagem)
-                        <!-- Verifica se há uma imagem -->
                         <img src="{{ asset($carro->imagem) }}" alt="Imagem do carro"
                             style="width: 100%; height: 100%; object-fit: cover; position: absolute;">
                     @endif

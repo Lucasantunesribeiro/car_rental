@@ -29,22 +29,15 @@ class CarroController extends Controller
 
     public function store(Request $request)
 {
-    // Valida os dados
     $validatedData = Carro::validate($request->all())->validated();
-
-    // Definindo imagem padrão caso não tenha sido enviada
     if (empty($request->imagem)) {
-        $validatedData['imagem'] = 'imagens/carros/carros.png'; // Caminho da imagem padrão
+        $validatedData['imagem'] = 'imagens/carros/carros.png';
     } else {
-        // Move a imagem enviada
         $imageName = time() . '.' . $request->imagem->extension();
         $request->imagem->move(public_path('imagens/carros'), $imageName);
-        $validatedData['imagem'] = 'imagens/carros/' . $imageName; // Atribuindo o caminho correto da imagem ao carro
+        $validatedData['imagem'] = 'imagens/carros/' . $imageName; 
     }
-
-    // Cria o carro no banco de dados
     Carro::create($validatedData);
-
     return redirect()->route('cars.index');
 }
 
@@ -60,15 +53,11 @@ class CarroController extends Controller
         $carro = Carro::findOrFail($id);
 
         $validatedData = Carro::validate($request->all())->validated();
-
-        // Verificando se uma nova imagem foi enviada
         if ($request->hasFile('imagem')) {
-            // Move a nova imagem enviada
             $imageName = time() . '.' . $request->imagem->extension();
             $request->imagem->move(public_path('imagens/carros'), $imageName);
-            $validatedData['imagem'] = $imageName; // Atribuindo o nome da nova imagem ao carro
+            $validatedData['imagem'] = $imageName;
         } else {
-            // Mantém a imagem atual se nenhuma nova imagem foi enviada
             $validatedData['imagem'] = $carro->imagem;
         }
 

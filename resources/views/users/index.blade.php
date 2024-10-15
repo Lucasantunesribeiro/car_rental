@@ -1,6 +1,6 @@
 <body class="bg-gray-50 font-sans antialiased">
 
-  @include('components.header') <!-- Incluindo o cabeçalho aqui -->
+  @include('components.header')
 
   <main class="container mx-auto px-6 py-10">
       <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight mb-6">

@@ -42,14 +42,9 @@
 
                             </td>
                             <td class="px-4 py-2">
-                                <!-- Botão Ver com cor azul -->
                                 <a href="{{ route('cars.show', $carro->id) }}" class="btn btn-info btn-sm">Ver</a>
-
-                                <!-- Botão Editar com cor amarela -->
                                 <a href="{{ route('cars.edit', $carro->id) }}"
                                     class="btn btn-warning btn-sm">Editar</a>
-
-                                <!-- Botão Deletar com cor vermelha -->
                                 <form action="{{ route('cars.destroy', $carro->id) }}" method="POST"
                                     style="display:inline;">
                                     @csrf

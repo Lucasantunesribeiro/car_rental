@@ -1,7 +1,6 @@
 @include('components.header')
 
 <body class="bg-gray-50 font-sans antialiased">
-    <!-- Exibir erros de validação -->
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

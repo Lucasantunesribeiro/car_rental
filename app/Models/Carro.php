@@ -154,12 +154,11 @@ class Carro extends Model
         ]);
 
         if (empty($request->imagem)) {
-            $validatedData['imagem'] = 'imagens/carros/carros.png'; // Caminho da imagem padrão
+            $validatedData['imagem'] = 'imagens/carros/carros.png';
         } else {
-            // Move a imagem enviada
             $imageName = time() . '.' . $request->imagem->extension();
             $request->imagem->move(public_path('imagens/carros'), $imageName);
-            $validatedData['imagem'] = 'imagens/carros/' . $imageName; // Atribuindo o caminho correto da imagem ao carro
+            $validatedData['imagem'] = 'imagens/carros/' . $imageName;
         }
 
 
@@ -168,6 +167,6 @@ class Carro extends Model
     }
     public function rents()
     {
-        return $this->hasMany(Rent::class, 'car_id'); // Certifique-se de que a relação está correta
+        return $this->hasMany(Rent::class, 'car_id');
     }
 }
