@@ -1,16 +1,16 @@
 {
   "version": 2,
   "builds": [
-      {
-          "src": "index.js",
-          "use": "@vercel/node"
-      }
+    {
+      "src": "public/index.php",
+      "use": "@vercel/php"
+    }
   ],
   "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "/",
-          "methods": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php",
+      "methods": [
               "GET",
               "POST",
               "PUT",
@@ -18,6 +18,6 @@
               "DELETE",
               "OPTIONS"
           ]
-      }
+    }
   ]
 }
